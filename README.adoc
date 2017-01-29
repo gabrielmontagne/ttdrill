@@ -1,0 +1,19 @@
+ttdrill
+=======
+:version:0.0.1
+:author:Gabriel Montagné Láscaris-Comneno gabriel@tibas.london
+
+
+`ttdrill` a simple drill script for targeting special characters when training touch-typing.
+
+[code]
+ttdrill --source abcdf
+
+Will generate random strings with the characters provided (In this case, `a`, `b`, `c`, `d` and `f`).
+You should then type the string generated.
+If you type the string correctly a longer string will be produced.
+
+If you fail to type the string the next string generated will be shorter and the character you missed will have a higher chance of showing up in the subsequent generated strings.
+If the character you mistakenly typed is also included in the source string then it will also have a higher chance of showing up in subsequent generated strings.
+
+If you don't provide a start screen a default string with numbers and a few signs will be used.
