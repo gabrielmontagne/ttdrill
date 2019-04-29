@@ -8,6 +8,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--source', default='1234567890_+=-!jk', required=False)
     parser.add_argument('--aggressiveness', type=int, default=5, required=False)
+    parser.add_argument('--count', type=int, default=5)
 
     configuration = parser.parse_args()
     source = configuration.source
@@ -29,12 +30,19 @@ def main():
 
     print('running module ttdrill', configuration.aggressiveness, pattern)
 
+    count = 0
+
     while True:
         c = getch.getch()
         attempt += c
         sys.stdout.write(c)
 
         if attempt == pattern:
+            count += 1
+            if count >= configuration.count:
+                print('\nciao')
+                sys.exit(0)
+
             print('\n\nOK\n\n')
             length += 1
             init()
